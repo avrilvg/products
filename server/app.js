@@ -11,8 +11,8 @@ const port = process.env.PORT || 8080;
 const app = express();
 
 // Set up mongoose connection
-// const mongoDB = process.env.MONGODB_URI || 'mongodb://root:aquas@localhost:27017/aquas';
-const mongoDB = process.env.MONGODB_URI || 'mongodb://localhost:27017/products';
+const mongoDB = process.env.MONGODB_URI || 'mongodb://root:products@localhost:27017/products';
+// const mongoDB = process.env.MONGODB_URI || 'mongodb://localhost:27017/products';
 mongoose.connect(mongoDB);
 mongoose.Promise = global.Promise;
 const db = mongoose.connection;
