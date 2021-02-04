@@ -16,7 +16,10 @@ const Searchbox = ({history}) => {
 
     const handleGetProducts = () => history.push(`/items?search=${searchText}`);
 
-    const handleGoToHome = () => history.push('/');
+    const handleGoToHome = () => {
+        setSearchText('');
+        history.push('/');
+    }
 
     return (
         <div className="header">

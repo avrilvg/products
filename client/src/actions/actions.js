@@ -7,7 +7,7 @@ import {
     ERROR_GET_PRODUCT_DETAILS
 } from '../actiontypes/index';
 
-const url = 'http://localhost:8080/api';
+const url = 'api';
 
 const getProducts = async (dispatch, searchText) => {
     try{
@@ -39,6 +39,8 @@ const getProductDetail = async (dispatch, productId) => {
         dispatch({
             type: START_GET_PRODUCT_DETAILS,
         });
+
+        debugger;
         const result = await fetch(`${url}/items/${productId}`);
         const response = await result.json();
 
@@ -47,7 +49,7 @@ const getProductDetail = async (dispatch, productId) => {
         dispatch({
             type: SUCCES_GET_PRODUCT_DETAILS,
             productDetail: response.data,
-            filters: response.data.categories
+            filters: response.data.item.categories
         });
     } catch(err){
         dispatch({
