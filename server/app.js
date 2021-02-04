@@ -11,8 +11,8 @@ const port = process.env.PORT || 8080;
 const app = express();
 
 // Set up mongoose connection
-const mongoDB = process.env.MONGODB_URI || 'mongodb://silvestre:silvestre@localhost:27017/products';
-// const mongoDB = process.env.MONGODB_URI || 'mongodb://localhost:27017/products';
+// const mongoDB = process.env.MONGODB_URI || 'mongodb://silvestre:silvestre@localhost:27017/products';
+const mongoDB = process.env.MONGODB_URI || 'mongodb://localhost:27017/products';
 mongoose.connect(mongoDB);
 mongoose.Promise = global.Promise;
 const db = mongoose.connection;
@@ -20,7 +20,7 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 app.use(cors());
 app.use(bodyParser.json());
-app.use('/items', productRoutes);
+app.use('/api/items', productRoutes);
 
 //if (process.env.NODE_ENV === 'production') {
 // Serve any static files

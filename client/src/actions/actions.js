@@ -7,7 +7,7 @@ import {
     ERROR_GET_PRODUCT_DETAILS
 } from '../actiontypes/index';
 
-const url = 'http://localhost:8080';
+const url = 'http://localhost:8080/api';
 
 const getProducts = async (dispatch, searchText) => {
     try{
